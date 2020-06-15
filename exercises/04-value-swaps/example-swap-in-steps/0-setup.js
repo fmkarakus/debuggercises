@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 // declare & assign variables
 let a = "y";
@@ -6,7 +6,6 @@ let b = "x";
 let temp = null;
 
 // swap the values stored by a and b ...
-
 
 // assert expected values
 
