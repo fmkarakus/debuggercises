@@ -2,18 +2,18 @@
 
 ## /exercises/05-functions-101/2-local-param-global 
 
-> 6/15/2020, 3:26:27 PM 
+> 6/17/2020, 11:20:41 AM 
 
 [../README.md](../README.md)
 
 - [/0-example.js](#0-examplejs)  
-- [/1-parameter-local.js](#1-parameter-localjs) - _incomplete_ 
-- [/2-parameter-global.js](#2-parameter-globaljs) - _incomplete_ 
-- [/3-parameter-global.js](#3-parameter-globaljs) - _incomplete_ 
-- [/5-local-global.js](#5-local-globaljs) - _incomplete_ 
-- [/6-local-global.js](#6-local-globaljs) - _incomplete_ 
-- [/7-parameter-local-global.js](#7-parameter-local-globaljs) - _incomplete_ 
-- [/8-prameter-local-global.js](#8-prameter-local-globaljs) - _incomplete_ 
+- [/1-parameter-local.js](#1-parameter-localjs) - _pass_ 
+- [/2-parameter-global.js](#2-parameter-globaljs) - _pass_ 
+- [/3-parameter-global.js](#3-parameter-globaljs) - _pass_ 
+- [/5-local-global.js](#5-local-globaljs) - _pass_ 
+- [/6-local-global.js](#6-local-globaljs) - _pass_ 
+- [/7-parameter-local-global.js](#7-parameter-local-globaljs) - _pass_ 
+- [/8-prameter-local-global.js](#8-prameter-local-globaljs) - _pass_ 
 - [/extra-pure-functions.js](#extra-pure-functionsjs)  
 
 ---
@@ -143,62 +143,55 @@ console.log('global2:', global2);
 
 ## /1-parameter-local.js 
 
-> incomplete 
+> pass 
 >
 > [review source](../../../exercises/05-functions-101/2-local-param-global/1-parameter-local.js)
 
 ```txt
-UNCAUGHT: ReferenceError: _ is not defined
-    at Object.<anonymous> (  ...  /exercises/05-functions-101/2-local-param-global/1-parameter-local.js:9:31)
-    at Module._compile (internal/modules/cjs/loader.js:1200:30)
-    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1220:10)
-    at Module.load (internal/modules/cjs/loader.js:1049:32)
-    at Function.Module._load (internal/modules/cjs/loader.js:937:14)
-    at Module.require (internal/modules/cjs/loader.js:1089:19)
-    at require (internal/modules/cjs/helpers.js:73:18)
-    at evaluate (  ...  /scripts/lib/evaluate.js:12:7)
-    at Object.<anonymous> (  ...  /scripts/review.js:100:1)
-    at Module._compile (internal/modules/cjs/loader.js:1200:30) 
++ PASS: Test 1: funk
++ PASS: Test 2: funk
++ PASS: Test 3: funk
++ PASS: Test 1: jazz
++ PASS: Test 2: jazz
++ PASS: Test 3: jazz
 ```
 
 ```js
-'use strict';
+"use strict";
 
 function funk(parameter) {
   const local = `funky`;
   return `${local} ${parameter}`;
 }
 
-const funkReturn1 = funk('hello');
-const funk1 = funkReturn1 === _;
-console.assert(funk1, 'Test 1: funk');
+const funkReturn1 = funk("hello");
+const funk1 = funkReturn1 === "funky hello";
+console.assert(funk1, "Test 1: funk");
 
-const funkReturn2 = funk('boat');
-const funk2 = funkReturn2 === _;
-console.assert(funk2, 'Test 2: funk');
+const funkReturn2 = funk("boat");
+const funk2 = funkReturn2 === "funky boat";
+console.assert(funk2, "Test 2: funk");
 
-const funkReturn3 = funk('tree');
-const funk3 = funkReturn3 === _;
-console.assert(funk3, 'Test 3: funk');
-
-
+const funkReturn3 = funk("tree");
+const funk3 = funkReturn3 === "funky tree";
+console.assert(funk3, "Test 3: funk");
 
 function jazz(parameter) {
   const local = `jazzy`;
   return `${local} ${parameter}`;
 }
 
-const jazzReturn1 = funk('hello');
-const jazz1 = jazzReturn1 === _;
-console.assert(jazz1, 'Test 1: jazz');
+const jazzReturn1 = jazz("hello");
+const jazz1 = jazzReturn1 === "jazzy hello";
+console.assert(jazz1, "Test 1: jazz");
 
-const jazzReturn2 = funk('boat');
-const jazz2 = jazzReturn2 === _;
-console.assert(jazz2, 'Test 2: jazz');
+const jazzReturn2 = jazz("boat");
+const jazz2 = jazzReturn2 === "jazzy boat";
+console.assert(jazz2, "Test 2: jazz");
 
-const jazzReturn3 = funk('tree');
-const jazz3 = jazzReturn3 === _;
-console.assert(jazz3, 'Test 3: jazz');
+const jazzReturn3 = jazz("tree");
+const jazz3 = jazzReturn3 === "jazzy tree";
+console.assert(jazz3, "Test 3: jazz");
 
 ```
 
@@ -208,26 +201,18 @@ console.assert(jazz3, 'Test 3: jazz');
 
 ## /2-parameter-global.js 
 
-> incomplete 
+> pass 
 >
 > [review source](../../../exercises/05-functions-101/2-local-param-global/2-parameter-global.js)
 
 ```txt
-UNCAUGHT: ReferenceError: _ is not defined
-    at Object.<anonymous> (  ...  /exercises/05-functions-101/2-local-param-global/2-parameter-global.js:20:31)
-    at Module._compile (internal/modules/cjs/loader.js:1200:30)
-    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1220:10)
-    at Module.load (internal/modules/cjs/loader.js:1049:32)
-    at Function.Module._load (internal/modules/cjs/loader.js:937:14)
-    at Module.require (internal/modules/cjs/loader.js:1089:19)
-    at require (internal/modules/cjs/helpers.js:73:18)
-    at evaluate (  ...  /scripts/lib/evaluate.js:12:7)
-    at Object.<anonymous> (  ...  /scripts/review.js:100:1)
-    at Module._compile (internal/modules/cjs/loader.js:1200:30) 
++ PASS: Test 1: funk
++ PASS: Test 2: funk
++ PASS: Test 3: funk
 ```
 
 ```js
-'use strict';
+"use strict";
 
 /* using global scope variables in your functions is a VERY BAD IDEA
 
@@ -238,29 +223,28 @@ UNCAUGHT: ReferenceError: _ is not defined
   that's why you should only use parameters and local variables in your functions
 */
 
-let global = '';
+let global = "";
 
 function funk(parameter) {
   global = `${global}funky`;
   return `${global} ${parameter}`;
 }
 
-const funkReturn1 = funk('hello');
-const funk1 = funkReturn1 === _;
-console.assert(funk1, 'Test 1: funk');
+const funkReturn1 = funk("hello");
+const funk1 = funkReturn1 === "funky hello";
+console.assert(funk1, "Test 1: funk");
 
-global = '#';
+global = "#";
 
-const funkReturn2 = funk('boat');
-const funk2 = funkReturn2 === _;
-console.assert(funk2, 'Test 2: funk');
+const funkReturn2 = funk("boat");
+const funk2 = funkReturn2 === "#funky boat";
+console.assert(funk2, "Test 2: funk");
 
 global = `${global}!`;
 
-const funkReturn3 = funk('tree');
-const funk3 = funkReturn3 === _;
-console.assert(funk3, 'Test 3: funk');
-
+const funkReturn3 = funk("tree");
+const funk3 = funkReturn3 === "#funky!funky tree";
+console.assert(funk3, "Test 3: funk");
 
 ```
 
@@ -270,49 +254,41 @@ console.assert(funk3, 'Test 3: funk');
 
 ## /3-parameter-global.js 
 
-> incomplete 
+> pass 
 >
 > [review source](../../../exercises/05-functions-101/2-local-param-global/3-parameter-global.js)
 
 ```txt
-UNCAUGHT: ReferenceError: _ is not defined
-    at Object.<anonymous> (  ...  /exercises/05-functions-101/2-local-param-global/3-parameter-global.js:11:31)
-    at Module._compile (internal/modules/cjs/loader.js:1200:30)
-    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1220:10)
-    at Module.load (internal/modules/cjs/loader.js:1049:32)
-    at Function.Module._load (internal/modules/cjs/loader.js:937:14)
-    at Module.require (internal/modules/cjs/loader.js:1089:19)
-    at require (internal/modules/cjs/helpers.js:73:18)
-    at evaluate (  ...  /scripts/lib/evaluate.js:12:7)
-    at Object.<anonymous> (  ...  /scripts/review.js:100:1)
-    at Module._compile (internal/modules/cjs/loader.js:1200:30) 
++ PASS: Test 1: jazz
++ PASS: Test 2: jazz
++ PASS: Test 3: jazz
 ```
 
 ```js
-'use strict';
+"use strict";
 
-let global = '<3';
+let global = "<3";
 
 function jazz(parameter) {
   global = `${global} jazzy`;
   return `${global} ${parameter}`;
 }
 
-const jazzReturn1 = jazz('hello');
-const jazz1 = jazzReturn1 === _;
-console.assert(jazz1, 'Test 1: jazz');
+const jazzReturn1 = jazz("hello");
+const jazz1 = jazzReturn1 === "<3 jazzy hello";
+console.assert(jazz1, "Test 1: jazz");
 
 global = `${global}!`;
 
-const jazzReturn2 = jazz('boat');
-const jazz2 = jazzReturn2 === _;
-console.assert(jazz2, 'Test 2: jazz');
+const jazzReturn2 = jazz("boat");
+const jazz2 = jazzReturn2 === "<3 jazzy! jazzy boat";
+console.assert(jazz2, "Test 2: jazz");
 
-global = ':(';
+global = ":(";
 
-const jazzReturn3 = jazz('tree');
-const jazz3 = jazzReturn3 === _;
-console.assert(jazz3, 'Test 3: jazz');
+const jazzReturn3 = jazz("tree");
+const jazz3 = jazzReturn3 === ":( jazzy tree";
+console.assert(jazz3, "Test 3: jazz");
 
 ```
 
@@ -322,70 +298,68 @@ console.assert(jazz3, 'Test 3: jazz');
 
 ## /5-local-global.js 
 
-> incomplete 
+> pass 
 >
 > [review source](../../../exercises/05-functions-101/2-local-param-global/5-local-global.js)
 
 ```txt
-UNCAUGHT: ReferenceError: _ is not defined
-    at Object.<anonymous> (  ...  /exercises/05-functions-101/2-local-param-global/5-local-global.js:12:35)
-    at Module._compile (internal/modules/cjs/loader.js:1200:30)
-    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1220:10)
-    at Module.load (internal/modules/cjs/loader.js:1049:32)
-    at Function.Module._load (internal/modules/cjs/loader.js:937:14)
-    at Module.require (internal/modules/cjs/loader.js:1089:19)
-    at require (internal/modules/cjs/helpers.js:73:18)
-    at evaluate (  ...  /scripts/lib/evaluate.js:12:7)
-    at Object.<anonymous> (  ...  /scripts/review.js:100:1)
-    at Module._compile (internal/modules/cjs/loader.js:1200:30) 
++ PASS: Test 1: funk
++ PASS: Test 2: global
++ PASS: Test 3: global
++ PASS: Test 4: funk
++ PASS: Test 5: global
++ PASS: Test 6: global
++ PASS: Test 7: funk
++ PASS: Test 8: global
++ PASS: Test 9: global
 ```
 
 ```js
-'use strict';
+"use strict";
 
-let global = 'awesome';
+let global = "awesome";
 
 function funk() {
-  const local = 'funky'
+  const local = "funky";
   global = `#${global}`;
   return `${local} ${global}`;
 }
 
 const funkReturn1 = funk();
-const funkTest1 = funkReturn1 === _;
-console.assert(funkTest1, 'Test 1: funk');
+const funkTest1 = funkReturn1 === "funky #awesome";
+console.assert(funkTest1, "Test 1: funk");
 
-const globalTest1 = global === _;
-console.assert(globalTest1, 'Test 2: global');
+const globalTest1 = global === "#awesome";
+console.assert(globalTest1, "Test 2: global");
 
 global = `${global}!`;
 
-const globalTest2 = global === _;
-console.assert(globalTest2, 'Test 3: global');
+const globalTest2 = global === "#awesome!";
+console.assert(globalTest2, "Test 3: global");
 
 const funkReturn2 = funk();
-const funkTest2 = funkReturn2 === _;
-console.assert(funkTest2, 'Test 4: funk');
+const funkTest2 = funkReturn2 === "funky ##awesome!";
+console.assert(funkTest2, "Test 4: funk");
 
-const globalTest3 = global === _;
-console.assert(globalTest3, 'Test 5: global');
+const globalTest3 = global === "##awesome!";
+console.assert(globalTest3, "Test 5: global");
 
-global = ':(';
+global = ":(";
 
-const globalTest4 = global === _;
-console.assert(globalTest4, 'Test 6: global');
+const globalTest4 = global === ":(";
+console.assert(globalTest4, "Test 6: global");
 
 const funkReturn3 = funk();
-const funkTest3 = funkReturn3 === _;
-console.assert(funkTest3, 'Test 7: funk');
+const funkTest3 = funkReturn3 === "funky #:(";
+console.assert(funkTest3, "Test 7: funk");
 
-const globalTest5 = global === _;
-console.assert(globalTest5, 'Test 8: global');
+const globalTest5 = global === "#:(";
+console.assert(globalTest5, "Test 8: global");
 
-global = 'bye!';
+global = "bye!";
 
-const globalTest6 = global === _;
-console.assert(globalTest6, 'Test 9: global');
+const globalTest6 = global === "bye!";
+console.assert(globalTest6, "Test 9: global");
 
 ```
 
@@ -395,70 +369,68 @@ console.assert(globalTest6, 'Test 9: global');
 
 ## /6-local-global.js 
 
-> incomplete 
+> pass 
 >
 > [review source](../../../exercises/05-functions-101/2-local-param-global/6-local-global.js)
 
 ```txt
-UNCAUGHT: ReferenceError: _ is not defined
-    at Object.<anonymous> (  ...  /exercises/05-functions-101/2-local-param-global/6-local-global.js:12:35)
-    at Module._compile (internal/modules/cjs/loader.js:1200:30)
-    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1220:10)
-    at Module.load (internal/modules/cjs/loader.js:1049:32)
-    at Function.Module._load (internal/modules/cjs/loader.js:937:14)
-    at Module.require (internal/modules/cjs/loader.js:1089:19)
-    at require (internal/modules/cjs/helpers.js:73:18)
-    at evaluate (  ...  /scripts/lib/evaluate.js:12:7)
-    at Object.<anonymous> (  ...  /scripts/review.js:100:1)
-    at Module._compile (internal/modules/cjs/loader.js:1200:30) 
++ PASS: Test 1: jazz
++ PASS: Test 2: global
++ PASS: Test 3: global
++ PASS: Test 4: jazz
++ PASS: Test 5: global
++ PASS: Test 6: global
++ PASS: Test 7: jazz
++ PASS: Test 8: global
++ PASS: Test 9: global
 ```
 
 ```js
-'use strict';
+"use strict";
 
-let global = 'turtle';
+let global = "turtle";
 
 function jazz() {
-  const local = 'jazzy'
+  const local = "jazzy";
   global = `${global}!`;
   return `${global} ${local}`;
 }
 
 const jazzReturn1 = jazz();
-const jazzTest1 = jazzReturn1 === _;
-console.assert(jazzTest1, 'Test 1: jazz');
+const jazzTest1 = jazzReturn1 === "turtle! jazzy";
+console.assert(jazzTest1, "Test 1: jazz");
 
-const globalTest1 = global === _;
-console.assert(globalTest1, 'Test 2: global');
+const globalTest1 = global === "turtle!";
+console.assert(globalTest1, "Test 2: global");
 
 global = `!`;
 
-const globalTest2 = global === _;
-console.assert(globalTest2, 'Test 3: global');
+const globalTest2 = global === `!`;
+console.assert(globalTest2, "Test 3: global");
 
 const jazzReturn2 = jazz();
-const jazzTest2 = jazzReturn2 === _;
-console.assert(jazzTest2, 'Test 4: jazz');
+const jazzTest2 = jazzReturn2 === "!! jazzy";
+console.assert(jazzTest2, "Test 4: jazz");
 
-const globalTest3 = global === _;
-console.assert(globalTest3, 'Test 5: global');
+const globalTest3 = global === "!!";
+console.assert(globalTest3, "Test 5: global");
 
 global = `_${global}_`;
 
-const globalTest4 = global === _;
-console.assert(globalTest4, 'Test 6: global');
+const globalTest4 = global === "_!!_";
+console.assert(globalTest4, "Test 6: global");
 
 const jazzReturn3 = jazz();
-const jazzTest3 = jazzReturn3 === _;
-console.assert(jazzTest3, 'Test 7: jazz');
+const jazzTest3 = jazzReturn3 === "_!!_! jazzy";
+console.assert(jazzTest3, "Test 7: jazz");
 
-const globalTest5 = global === _;
-console.assert(globalTest5, 'Test 8: global');
+const globalTest5 = global === "_!!_!";
+console.assert(globalTest5, "Test 8: global");
 
 global = `${global}. bye!`;
 
-const globalTest6 = global === _;
-console.assert(globalTest6, 'Test 9: global');
+const globalTest6 = global === "_!!_!. bye!";
+console.assert(globalTest6, "Test 9: global");
 
 ```
 
@@ -468,28 +440,24 @@ console.assert(globalTest6, 'Test 9: global');
 
 ## /7-parameter-local-global.js 
 
-> incomplete 
+> pass 
 >
 > [review source](../../../exercises/05-functions-101/2-local-param-global/7-parameter-local-global.js)
 
 ```txt
-UNCAUGHT: ReferenceError: _ is not defined
-    at Object.<anonymous> (  ...  /exercises/05-functions-101/2-local-param-global/7-parameter-local-global.js:11:32)
-    at Module._compile (internal/modules/cjs/loader.js:1200:30)
-    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1220:10)
-    at Module.load (internal/modules/cjs/loader.js:1049:32)
-    at Function.Module._load (internal/modules/cjs/loader.js:937:14)
-    at Module.require (internal/modules/cjs/loader.js:1089:19)
-    at require (internal/modules/cjs/helpers.js:73:18)
-    at evaluate (  ...  /scripts/lib/evaluate.js:12:7)
-    at Object.<anonymous> (  ...  /scripts/review.js:100:1)
-    at Module._compile (internal/modules/cjs/loader.js:1200:30) 
++ PASS: Test 1: global
++ PASS: Test 2: funk
++ PASS: Test 3: global
++ PASS: Test 4: global
++ PASS: Test 5: funk
++ PASS: Test 6: global
++ PASS: Test 7: global
 ```
 
 ```js
-'use strict';
+"use strict";
 
-let global = '.';
+let global = ".";
 
 function funk(parameter) {
   const local = `funky ${global}`;
@@ -497,32 +465,32 @@ function funk(parameter) {
   return `${parameter} ${local} ${global}`;
 }
 
-const globalTest1 = global === _;
-console.assert(globalTest1, 'Test 1: global');
+const globalTest1 = global === ".";
+console.assert(globalTest1, "Test 1: global");
 
-const funkReturn1 = funk('hello');
-const funkTest1 = funkReturn1 === _;
-console.assert(funkTest1, 'Test 2: funk');
+const funkReturn1 = funk("hello");
+const funkTest1 = funkReturn1 === "hello funky . . .";
+console.assert(funkTest1, "Test 2: funk");
 
-const globalTest2 = global === _;
-console.assert(globalTest2, 'Test 3: global');
+const globalTest2 = global === ". .";
+console.assert(globalTest2, "Test 3: global");
 
 global = `${global} hi`;
 
-const globalTest3 = global === _;
-console.assert(globalTest3, 'Test 4: global');
+const globalTest3 = global === ". . hi";
+console.assert(globalTest3, "Test 4: global");
 
-const funkReturn2 = funk('boat');
-const funkTest2 = funkReturn2 === _;
-console.assert(funkTest2, 'Test 5: funk');
+const funkReturn2 = funk("boat");
+const funkTest2 = funkReturn2 === "boat funky . . hi . . hi . . hi";
+console.assert(funkTest2, "Test 5: funk");
 
-const globalTest4 = global === _;
-console.assert(globalTest4, 'Test 6: global');
+const globalTest4 = global === ". . hi . . hi";
+console.assert(globalTest4, "Test 6: global");
 
 global = `${global} bye.`;
 
-const globalTest5 = global === _;
-console.assert(globalTest5, 'Test 7: global');
+const globalTest5 = global === ". . hi . . hi bye.";
+console.assert(globalTest5, "Test 7: global");
 
 ```
 
@@ -532,28 +500,24 @@ console.assert(globalTest5, 'Test 7: global');
 
 ## /8-prameter-local-global.js 
 
-> incomplete 
+> pass 
 >
 > [review source](../../../exercises/05-functions-101/2-local-param-global/8-prameter-local-global.js)
 
 ```txt
-UNCAUGHT: ReferenceError: _ is not defined
-    at Object.<anonymous> (  ...  /exercises/05-functions-101/2-local-param-global/8-prameter-local-global.js:11:32)
-    at Module._compile (internal/modules/cjs/loader.js:1200:30)
-    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1220:10)
-    at Module.load (internal/modules/cjs/loader.js:1049:32)
-    at Function.Module._load (internal/modules/cjs/loader.js:937:14)
-    at Module.require (internal/modules/cjs/loader.js:1089:19)
-    at require (internal/modules/cjs/helpers.js:73:18)
-    at evaluate (  ...  /scripts/lib/evaluate.js:12:7)
-    at Object.<anonymous> (  ...  /scripts/review.js:100:1)
-    at Module._compile (internal/modules/cjs/loader.js:1200:30) 
++ PASS: Test 1: global
++ PASS: Test 2: jazz
++ PASS: Test 3: global
++ PASS: Test 4: global
++ PASS: Test 5: jazz
++ PASS: Test 6: global
++ PASS: Test 7: global
 ```
 
 ```js
-'use strict';
+"use strict";
 
-let global = '.';
+let global = ".";
 
 function jazz(parameter) {
   const local = `jazzy ${global}`;
@@ -561,32 +525,32 @@ function jazz(parameter) {
   return `${parameter} ${local} ${global}`;
 }
 
-const globalTest1 = global === _;
-console.assert(globalTest1, 'Test 1: global');
+const globalTest1 = global === ".";
+console.assert(globalTest1, "Test 1: global");
 
-const jazzReturn1 = jazz('hello');
-const jazzTest1 = jazzReturn1 === _;
-console.assert(jazzTest1, 'Test 2: jazz');
+const jazzReturn1 = jazz("hello");
+const jazzTest1 = jazzReturn1 === "hello jazzy . #.";
+console.assert(jazzTest1, "Test 2: jazz");
 
-const globalTest2 = global === _;
-console.assert(globalTest2, 'Test 3: global');
+const globalTest2 = global === "#.";
+console.assert(globalTest2, "Test 3: global");
 
-global = 'hi';
+global = "hi";
 
-const globalTest3 = global === _;
-console.assert(globalTest3, 'Test 4: global');
+const globalTest3 = global === "hi";
+console.assert(globalTest3, "Test 4: global");
 
-const jazzReturn2 = jazz('boat');
-const jazzTest2 = jazzReturn2 === _;
-console.assert(jazzTest2, 'Test 5: jazz');
+const jazzReturn2 = jazz("boat");
+const jazzTest2 = jazzReturn2 === "boat jazzy hi #hi";
+console.assert(jazzTest2, "Test 5: jazz");
 
-const globalTest4 = global === _;
-console.assert(globalTest4, 'Test 6: global');
+const globalTest4 = global === "#hi";
+console.assert(globalTest4, "Test 6: global");
 
-global = 'bye.';
+global = "bye.";
 
-const globalTest5 = global === _;
-console.assert(globalTest5, 'Test 7: global');
+const globalTest5 = global === "bye.";
+console.assert(globalTest5, "Test 7: global");
 
 ```
 
@@ -601,7 +565,7 @@ console.assert(globalTest5, 'Test 7: global');
 > [review source](../../../exercises/05-functions-101/2-local-param-global/extra-pure-functions.js)
 
 ```js
-'use strict';
+"use strict";
 
 // PURE FUNCTIONS are a habit, not a language feature:
 //  - only use LOCAL VARIABLES and PARAMETERS in your function body
@@ -621,26 +585,31 @@ console.assert(globalTest5, 'Test 7: global');
 function a() {
   return x + y;
 }
+//not pure
 
 function b(y) {
   result = x + y;
   return result;
 }
+//not pure
 
 function c(y, x) {
-  const m = y - x
+  const m = y - x;
   return x + m;
 }
+//pure
 
 function d(x, y) {
-  const a = 'hi';
+  const a = "hi";
   return x + y + z;
 }
+//not pure
 
 function e(x, y) {
   p += z;
   return z + y;
 }
+//not pure
 
 ```
 
