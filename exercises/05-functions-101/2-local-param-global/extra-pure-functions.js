@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 // PURE FUNCTIONS are a habit, not a language feature:
 //  - only use LOCAL VARIABLES and PARAMETERS in your function body
@@ -18,23 +18,28 @@
 function a() {
   return x + y;
 }
+//not pure
 
 function b(y) {
   result = x + y;
   return result;
 }
+//not pure
 
 function c(y, x) {
-  const m = y - x
+  const m = y - x;
   return x + m;
 }
+//pure
 
 function d(x, y) {
-  const a = 'hi';
+  const a = "hi";
   return x + y + z;
 }
+//not pure
 
 function e(x, y) {
   p += z;
   return z + y;
 }
+//not pure
